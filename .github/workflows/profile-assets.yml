@@ -1,20 +1,29 @@
 name: Update Profile Assets
 
 on:
-  schedule:
-    - cron: "0 0 * * *"
   workflow_dispatch:
+  schedule:
+    - cron: "17 3 * * *"
 
 permissions:
   contents: write
 
+concurrency:
+  group: update-profile-assets
+  cancel-in-progress: false
+
 jobs:
   profile-assets:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      # ------------------------------------------------------------
+      # Classic GitHub Readme Stats
+      # ------------------------------------------------------------
 
       - name: Generate GitHub Stats
         uses: stats-organization/github-readme-stats-action@v2
@@ -22,7 +31,7 @@ jobs:
           card: stats
           options: username=${{ github.repository_owner }}&show_icons=true
           path: profile/stats.svg
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ github.token }}
           fail_on_error: true
 
       - name: Generate Top Languages
@@ -31,17 +40,76 @@ jobs:
           card: top-langs
           options: username=${{ github.repository_owner }}&layout=compact&langs_count=6
           path: profile/top-langs.svg
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ github.token }}
           fail_on_error: true
 
-      - name: Generate Profile Intelligence
-        uses: shinpr/github-profile-stats@49b5f7091182a45f3ef93923505b660c6da5f835
+      # ------------------------------------------------------------
+      # Profile Intelligence
+      # ------------------------------------------------------------
+
+      - name: Generate Signal Field
+        uses: shinpr/github-profile-stats@49b5f7091182a45f3ef93923505b660c6da5f835 # v0.2.0
+        id: signal
         with:
-          github-token: ${{ github.token }}
-          profile: |
-            signal-field
-            activity-consistency
-            language-composition
+          username: ${{ github.repository_owner }}
+          token: ${{ github.token }}
+          profile: signal-field
+
+      - name: Publish Signal Field
+        env:
+          READY_DIR: ${{ steps.signal.outputs.ready-dir }}
+        run: |
+          mkdir -p profile
+          cp "$READY_DIR"/signal-field-*.svg profile/
+
+          test -s profile/signal-field-wide-light.svg
+          test -s profile/signal-field-wide-dark.svg
+          test -s profile/signal-field-compact-light.svg
+          test -s profile/signal-field-compact-dark.svg
+
+      - name: Generate Activity Consistency
+        uses: shinpr/github-profile-stats@49b5f7091182a45f3ef93923505b660c6da5f835 # v0.2.0
+        id: activity
+        with:
+          username: ${{ github.repository_owner }}
+          token: ${{ github.token }}
+          profile: activity-consistency
+
+      - name: Publish Activity Consistency
+        env:
+          READY_DIR: ${{ steps.activity.outputs.ready-dir }}
+        run: |
+          mkdir -p profile
+          cp "$READY_DIR"/activity-consistency-*.svg profile/
+
+          test -s profile/activity-consistency-wide-light.svg
+          test -s profile/activity-consistency-wide-dark.svg
+          test -s profile/activity-consistency-compact-light.svg
+          test -s profile/activity-consistency-compact-dark.svg
+
+      - name: Generate Language Composition
+        uses: shinpr/github-profile-stats@49b5f7091182a45f3ef93923505b660c6da5f835 # v0.2.0
+        id: languages
+        with:
+          username: ${{ github.repository_owner }}
+          token: ${{ github.token }}
+          profile: language-composition
+
+      - name: Publish Language Composition
+        env:
+          READY_DIR: ${{ steps.languages.outputs.ready-dir }}
+        run: |
+          mkdir -p profile
+          cp "$READY_DIR"/language-composition-*.svg profile/
+
+          test -s profile/language-composition-wide-light.svg
+          test -s profile/language-composition-wide-dark.svg
+          test -s profile/language-composition-compact-light.svg
+          test -s profile/language-composition-compact-dark.svg
+
+      # ------------------------------------------------------------
+      # Contribution Snake
+      # ------------------------------------------------------------
 
       - name: Generate Contribution Snake
         uses: Platane/snk/svg-only@v3
@@ -52,6 +120,44 @@ jobs:
             profile/github-snake.svg
             profile/github-snake-dark.svg?palette=github-dark
 
+      # ------------------------------------------------------------
+      # Validate + publish
+      # ------------------------------------------------------------
+
+      - name: Validate generated assets
+        run: |
+          set -e
+
+          echo "===== GENERATED PROFILE ASSETS ====="
+          find profile -maxdepth 1 -type f -name '*.svg' -print | sort
+
+          echo
+          echo "===== REQUIRED FILES ====="
+
+          test -s profile/stats.svg
+          test -s profile/top-langs.svg
+
+          test -s profile/signal-field-wide-light.svg
+          test -s profile/signal-field-wide-dark.svg
+          test -s profile/signal-field-compact-light.svg
+          test -s profile/signal-field-compact-dark.svg
+
+          test -s profile/activity-consistency-wide-light.svg
+          test -s profile/activity-consistency-wide-dark.svg
+          test -s profile/activity-consistency-compact-light.svg
+          test -s profile/activity-consistency-compact-dark.svg
+
+          test -s profile/language-composition-wide-light.svg
+          test -s profile/language-composition-wide-dark.svg
+          test -s profile/language-composition-compact-light.svg
+          test -s profile/language-composition-compact-dark.svg
+
+          test -s profile/github-snake.svg
+          test -s profile/github-snake-dark.svg
+
+          echo
+          echo "ALL PROFILE ASSETS VALID."
+
       - name: Commit generated assets
         run: |
           git config user.name "github-actions[bot]"
@@ -61,7 +167,8 @@ jobs:
 
           if git diff --cached --quiet; then
             echo "No profile asset changes detected."
-          else
-            git commit -m "chore: update profile assets"
-            git push
+            exit 0
           fi
+
+          git commit -m "chore: update profile assets"
+          git push
