@@ -23,7 +23,7 @@
 </p>
 
 <p align="center">
-  I build enterprise-grade, zero-backend applications entirely from an Android tablet. No high-end PC, no heavy IDEs—just Termux, raw browser APIs, and AI as my execution engine. I provide exhaustive, constraint-heavy specifications to build systems that span 3D graphics, decentralized networking, and digital therapeutics.
+  I build production-minded software systems entirely from an Android tablet. No high-end PC, no heavy IDEs—just Termux, raw browser APIs, and AI as my execution engine. I provide exhaustive, constraint-heavy specifications to build systems that span 3D graphics, decentralized networking, and behavioral UX.
 </p>
 
 ---
@@ -39,22 +39,32 @@ class Tejas:
         "Zero-Backend P2P Networking",
         "3D Graphics & Custom GLSL Shaders",
         "Computer Vision (MediaPipe)",
-        "Digital Therapeutics & Behavioral UX",
+        "Behavioral UX & Digital Wellbeing",
         "AI-Assisted Execution Pipelines"
-    ]
-
-    currently_building = [
-        "DirectDrop P2P (Hybrid Native Kotlin)",
-        "Brainrot Adventure (Open-world FPS)",
-        "HoloDrive Rally (Hand-tracked Racing)"
     ]
 
     philosophy = "Anti-Asset Engineering: Synthesize, never import."
 ```
 
-> **I build enterprise-grade, zero-backend applications entirely from an Android tablet.**
+---
 
-No high-end PC, no heavy IDEs—just Termux, raw browser APIs, and AI as my execution engine. I provide exhaustive, constraint-heavy specifications to build systems that span 3D graphics, decentralized networking, and digital therapeutics.
+## ⚡ NOW
+
+```text
+BUILDING
+├── DirectDrop P2P (Hybrid Native Kotlin)
+├── Brainrot Adventure (Open-world FPS)
+└── HoloDrive Rally (Hand-tracked Racing)
+
+EXPLORING
+├── Native Android bridges
+├── WebRTC architectures
+├── GPU/WebGL pipelines
+└── AI-assisted development
+
+CONSTRAINT
+└── Android-first development
+```
 
 ---
 
@@ -70,11 +80,11 @@ Architected a custom `project(x, y, z, cam)` function calculating FOV, yaw, and 
 
 <br>
 
-### 🏆 CONTEXT-WINDOW HACKING
+### 🏆 CONSTRAINT-DRIVEN ENGINEERING
 
-**AI-Readable Code Minimizer**
+**Compact Data Representations**
 
-Wrote custom Flat Array Helpers and geometry signature caching to compress 300+ lines of 3D vertex data into ~20 lines of AI-readable code, specifically engineered to fit inside LLM context windows.
+Designed compact data representations and reusable geometry helpers to reduce memory, source size, and implementation complexity when building graphics systems on constrained hardware.
 
 <br>
 
@@ -103,8 +113,8 @@ Invented a "Local Outbox" state machine simulating backend message queuing via `
 > **01 // ANTI-ASSET ENGINEERING**
 > I don't rely on external `.mp3`s, `.png`s, or heavy frameworks. I synthesize audio via Web Audio API oscillators, generate textures via SVG `feTurbulence`, and write custom DOM engines to maintain strict single-file, offline-first architectures.
 >
-> **02 // CONTEXT-WINDOW HACKING**
-> When building 3D tools, I write custom Flat Array Helpers and geometry signature caching to compress 300+ lines of vertex data into ~20 lines of AI-readable code, specifically engineered to fit inside LLM context windows.
+> **02 // CONSTRAINT-DRIVEN ENGINEERING**
+> I design compact data representations and reusable geometry helpers to reduce memory, source size, and implementation complexity when building graphics systems on constrained hardware.
 >
 > **03 // FRICTION CHOREOGRAPHY**
 > I design UX at the millisecond level. From staggered `setTimeout` sequences that force users to sit with their achievements, to pausing CSS animations during mobile drag-events to prevent UI clipping.
@@ -171,11 +181,11 @@ Invented a "Local Outbox" state machine simulating backend message queuing via `
 
 <div align="center">
 
-<a href="https://github.com/TejUzumaki">
+<a href="https://github.com/TejUzumaki/DirectDrop">
 <img src="https://img.shields.io/badge/%F0%9F%9A%80%20LIVE%20SYSTEM-7CFF6B?style=for-the-badge&logoColor=white"/>
 </a>
 
-<a href="https://github.com/TejUzumaki">
+<a href="https://github.com/TejUzumaki/DirectDrop">
 <img src="https://img.shields.io/badge/%E2%AD%90%20SOURCE%20CODE-0a0a0b?style=for-the-badge&logo=github&logoColor=white"/>
 </a>
 
@@ -198,11 +208,11 @@ Invented a "Local Outbox" state machine simulating backend message queuing via `
 
 <div align="center">
 
-<a href="https://github.com/TejUzumaki">
+<a href="https://github.com/TejUzumaki/Brainrot-Adventure">
 <img src="https://img.shields.io/badge/%F0%9F%9A%80%20LIVE%20SYSTEM-7CFF6B?style=for-the-badge"/>
 </a>
 
-<a href="https://github.com/TejUzumaki">
+<a href="https://github.com/TejUzumaki/Brainrot-Adventure">
 <img src="https://img.shields.io/badge/%E2%AD%90%20SOURCE%20CODE-0a0a0b?style=for-the-badge&logo=github"/>
 </a>
 
@@ -214,7 +224,7 @@ Invented a "Local Outbox" state machine simulating backend message queuing via `
 
 `Vanilla JS` `CSS3` `PWA` `Service Workers`
 
-> **A digital behavior modification PWA enforcing anti-dopamine UX.**
+> **A digital wellbeing PWA enforcing anti-dopamine UX.**
 
 ```text
                     USER INPUT
@@ -324,46 +334,6 @@ a = \sin^2\left(\frac{\Delta\varphi}{2}\right) + \cos(\varphi_1)\cos(\varphi_2)\
 
 ---
 
-# 📊 GITHUB INTELLIGENCE
-
-<div align="center">
-
-<img height="180" src="https://github-readme-stats.vercel.app/api?username=TejUzumaki&show_icons=true&theme=dark&hide_border=true&bg_color=0a0a0b&title_color=6b8f71&icon_color=8aad8e&text_color=e4e4e7&ring=6b8f71&include_all_commits=true" />
-
-<img height="180" src="https://github-readme-stats.vercel.app/api/top-langs/?username=TejUzumaki&layout=compact&theme=dark&hide_border=true&bg_color=0a0a0b&title_color=6b8f71&text_color=e4e4e7&langs_count=8" />
-
-</div>
-
-<br>
-
-<div align="center">
-
-<img src="https://streak-stats.demolab.com/?user=TejUzumaki&theme=dark&hide_border=true&background=0a0a0b&ring=6b8f71&fire=8aad8e&curr=ffffff&side=52525b" />
-
-</div>
-
----
-
-# 🐍 CONTRIBUTION MATRIX
-
-<div align="center">
-
-<img src="https://raw.githubusercontent.com/TejUzumaki/TejUzumaki/output/github-contribution-grid-snake-dark.svg" alt="GitHub contribution snake animation"/>
-
-</div>
-
----
-
-# 📈 ACTIVITY
-
-<div align="center">
-
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=TejUzumaki&bg_color=0a0a0b&color=e4e4e7&line=6b8f71&point=8aad8e&area=true&hide_border=true" width="95%" alt="GitHub activity graph"/>
-
-</div>
-
----
-
 # 🔬 HOW I APPROACH ENGINEERING
 
 ```text
@@ -398,10 +368,49 @@ a = \sin^2\left(\frac{\Delta\varphi}{2}\right) + \cos(\varphi_1)\cos(\varphi_2)\
 
 ---
 
-### 🗄️ Full System Index
+# 📊 GITHUB INTELLIGENCE
+
+<div align="center">
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./profile/stats-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="./profile/stats-light.svg">
+  <img src="./profile/stats-dark.svg" width="49%" alt="GitHub statistics" />
+</picture>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./profile/top-langs-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="./profile/top-langs-light.svg">
+  <img src="./profile/top-langs-dark.svg" width="49%" alt="Top programming languages" />
+</picture>
+
+<br>
+<br>
+
+<img src="./profile/streak.svg" alt="GitHub contribution streak" width="70%" />
+
+</div>
+
+---
+
+# 🐍 CONTRIBUTION MATRIX
+
+<div align="center">
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./profile/github-snake-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="./profile/github-snake.svg" />
+  <img src="./profile/github-snake-dark.svg" alt="GitHub contribution snake" width="95%" />
+</picture>
+
+</div>
+
+---
+
+# 🗄️ EXPERIMENTS / ARCHIVE
 
 <details>
-<summary><b>Expand Complete Project Architecture</b></summary>
+<summary><b>Expand Complete System Index</b></summary>
 <br>
 
 | System | Domain | Core Tech | State |
